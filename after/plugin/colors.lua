@@ -1,13 +1,66 @@
-require('rose-pine').setup({
-    disable_background = false
-})
+local actions = require'telescope.actions'
+local pickers = require'telescope.pickers'
+local finders = require'telescope.finders'
+local sorters = require'telescope.sorters'
 
-function Theme(color)
+local action_state = require'telescope.actions.state'
+
+
+local function SetTheme(color)
+    if color == nil then return false end
+
     color = color or 'rose-pine'
-
     vim.cmd.colorscheme(color)
-    -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
-Theme()
+
+local themes = {
+    ['rosé-pine'] = function()
+        require('rose-pine').setup({ disable_background = false })
+        SetTheme('rose-pine')
+    end
+}
+
+local mini = {
+    layout_strategies = "vertical",
+    layout_config = {
+        height = 10,
+        width = 0.3,
+        prompt_position = "top"
+    },
+
+    sorting_strategy = "ascending",
+}
+
+local function ThemeNames()
+    local names = {}
+    local count = 1
+    for k,_ in pairs(themes) do
+        names[count] = k
+        count = count + 1
+    end
+    return names
+end
+
+local opts = {
+    finder = finders.new_table(ThemeNames()),
+    sorter = sorters.get_generic_fuzzy_sorter({}),
+
+    attach_mappings = function(prompt_bufnr, map)
+        map("i", "<CR>", function()
+            local selected = action_state.get_selected_entry()
+            themes[selected[1]]()
+            actions.close(prompt_bufnr)
+        end)
+        return true
+    end
+}
+
+local colors = pickers.new(mini, opts)
+
+function SetColor()
+    colors:find()
+end
+
+SetTheme('rose-pine')
+vim.api.nvim_create_user_command('Color', SetColor, { nargs = 0 })

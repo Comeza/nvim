@@ -2,13 +2,29 @@ local alpha = require'alpha'
 local present, alpha = pcall(require, "alpha")
 
 local header = {
-  type = "text",
-  val = require('comesa.headers').get_header(true),
-  opts = {
-    position = "center",
-    hl = "Comment",
-  },
+    type = "text",
+    val = require('comesa.headers').get_header(),
+    opts = {
+        position = "center",
+        hl = "Comment",
+    },
 }
+
+local pluginCount = {
+    type = "text",
+    val = "  " .. (function ()
+       local count = 0
+       for _,_ in pairs(packer_plugins) do
+           count = count + 1
+       end
+       return count
+    end)() .. " plugins in total",
+    opts = {
+        position = "center",
+        hl = "String",
+    },
+}
+
 
 local function button(sc, txt, keybind)
     local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
@@ -23,6 +39,7 @@ local function button(sc, txt, keybind)
         hl_shortcut = "Number",
         hl = "Function",
     }
+
     if keybind then
         opts.keymap = { "n", sc_, keybind, { noremap = true, silent = true } }
     end
@@ -44,7 +61,7 @@ local buttons  = {
         button( "e", "   Create" , ":ene <BAR> startinsert <CR>"),
         button( "r", "   Restore", ":SessionManager load_last_session<CR>"),
         button( "l", "   Load",    ":SessionManager load_session<CR>"),
-        button("c",  "   Config",  ":cd ~/.config/nvim/<CR>:e .<CR>"),
+        button( "c", "   Config",  ":cd ~/.config/nvim/<CR>:e .<CR>"),
         button( "u", "   Update",  ":PackerSync<CR>"),
         button( "q", "   Quit" ,   ":qa<CR>"),
     },
@@ -57,23 +74,24 @@ local buttons  = {
 local section = {
     header = header,
     buttons = buttons,
+    pluginCount = pluginCount,
 }
 
 local opts = {
-  layout = {
-    { type = "padding", val = 3 },
-    section.header,
-   -- { type = "padding", val = 3 },
-   -- section.greetHeading,
-   -- section.pluginCount,
-    { type = "padding", val = 2 },
-    section.buttons,
-   -- { type = "padding", val = 2 },
-   -- section.footer,
-  },
-  opts = {
-    margin = 44,
-  },
+    layout = {
+        { type = "padding", val = 3 },
+        section.header,
+        { type = "padding", val = 3 },
+        -- section.greetHeading,
+        section.pluginCount,
+        { type = "padding", val = 2 },
+        section.buttons,
+        -- { type = "padding", val = 2 },
+        -- section.footer,
+    },
+    opts = {
+        margin = 44,
+    },
 }
 
 alpha.setup(opts)
