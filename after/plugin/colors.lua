@@ -1,9 +1,9 @@
-local actions = require'telescope.actions'
-local pickers = require'telescope.pickers'
-local finders = require'telescope.finders'
-local sorters = require'telescope.sorters'
+local actions = require 'telescope.actions'
+local pickers = require 'telescope.pickers'
+local finders = require 'telescope.finders'
+local sorters = require 'telescope.sorters'
 
-local action_state = require'telescope.actions.state'
+local action_state = require 'telescope.actions.state'
 
 
 local function SetTheme(color)
@@ -13,11 +13,23 @@ local function SetTheme(color)
     vim.cmd.colorscheme(color)
 end
 
-
 local themes = {
     ['rosé-pine'] = function()
         require('rose-pine').setup({ disable_background = false })
         SetTheme('rose-pine')
+    end,
+    ['no-clown-fiesta'] = function()
+        require("no-clown-fiesta").setup({
+            transparent = false, -- Enable this to disable the bg color
+            styles = {
+                comments = {},
+                keywords = {},
+                functions = {},
+                variables = {},
+                type = { bold = true },
+            },
+        })
+        SetTheme('no-clown-fiesta')
     end
 }
 
@@ -35,7 +47,7 @@ local mini = {
 local function ThemeNames()
     local names = {}
     local count = 1
-    for k,_ in pairs(themes) do
+    for k, _ in pairs(themes) do
         names[count] = k
         count = count + 1
     end
@@ -62,5 +74,6 @@ function SetColor()
     colors:find()
 end
 
-SetTheme('rose-pine')
+themes['no-clown-fiesta']()
+
 vim.api.nvim_create_user_command('Color', SetColor, { nargs = 0 })

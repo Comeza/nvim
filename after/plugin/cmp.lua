@@ -30,7 +30,7 @@ local cmp = require('cmp')
 
 cmp.setup {
     view = {
-        entries = {name = 'custom', selection_order = 'near_cursor' }
+        entries = { name = 'custom' }
     },
     formatting = {
         format = function(entry, vim_item)

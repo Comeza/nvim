@@ -27,7 +27,7 @@ lsp.setup_nvim_cmp({
     mapping = cmp_mappings
 })
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = true }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -39,6 +39,9 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>f", function () vim.lsp.buf.format() end, opts)
 end)
 
+-- Sometimes this is needed that the lsp can resolve the 'vim' global variable
+-- If this doesn't work, you might need to update neovim.
+-- In case if you're using Arch, you might want to use `neovim-git` instead of `neovim`.
 require'lspconfig'.sumneko_lua.setup {
     settings = { Lua = {
         runtime = { version = 'LuaJIT' },
