@@ -62,4 +62,5 @@ return require('packer').startup(function(use)
 
         -- Fugitive (Git Integration)
         use 'tpope/vim-fugitive'
-    end)Keyboard Shortcuts)
+        use 'airblade/vim-gitgutter'
+    end)
