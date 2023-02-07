@@ -34,7 +34,7 @@ local ICONS = {
     TypeAlias     = "",
     Parameter     = "",
     Macro         = "",
-    Text          = "",
+    Text          = ""
 }
 
 local cmp = require('cmp')
@@ -49,11 +49,11 @@ cmp.setup {
             vim_item.kind = string.format('%s [%s]', ICONS[vim_item.kind], vim_item.kind)
             -- Source
             vim_item.menu = ({
-                    nvim_lsp = "[LSP]",
-                    luasnip = "[LuaSnip]",
-                    nvim_lua = "[Lua]",
+                    nvim_lsp      = "[LSP]",
+                    luasnip       = "[LuaSnip]",
+                    nvim_lua      = "[Lua]",
                     latex_symbols = "[LaTeX]",
-                    buffer = "[Buffer]",
+                    buffer        = "[Buffer]",
                 })[entry.source.name]
             return vim_item
         end

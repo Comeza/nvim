@@ -15,9 +15,6 @@ vim.keymap.set("n", "<leader>w", ":w<CR>", opts)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
 
--- (re)format code
--- vim.keymap.set("n", "<leader>f", "gg=G``w", opts)
-
 -- buffer keys
 vim.keymap.set("n", "bd", "<cmd>bd<CR>", opts)
 vim.keymap.set("n", "bp", "<cmd>bp<CR>", opts)
