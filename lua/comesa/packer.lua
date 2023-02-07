@@ -59,4 +59,7 @@ return require('packer').startup(function(use)
         -- Lua line
         use 'nvim-lualine/lualine.nvim'
         use 'arkav/lualine-lsp-progress'
-    end)
+
+        -- Fugitive (Git Integration)
+        use 'tpope/vim-fugitive'
+    end)Keyboard Shortcuts)
