@@ -1,5 +1,4 @@
-local alpha = require'alpha'
-local present, alpha = pcall(require, "alpha")
+local _, alpha = pcall(require, "alpha")
 
 local header = {
     type = "text",

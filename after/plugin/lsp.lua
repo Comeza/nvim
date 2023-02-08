@@ -41,16 +41,17 @@ end)
 
 -- Sometimes this is needed that the lsp can resolve the 'vim' global variable
 -- If this doesn't work, you might need to update neovim.
--- In case if you're using Arch, you might want to use `neovim-git` instead of `neovim`.
+-- In case if you're using Arch, you might want to use `neovim-git` (AUR) instead of `neovim`.
+-- It also helps to run `:so %` on this file sometimes. Idk why
+-- Maybe it's the out-dated LuaJIT version, some environmet magic or just some lsp mischief.
 require 'lspconfig'.sumneko_lua.setup {
     settings = { Lua = {
-        runtime = { version = 'LuaJIT' },
+        runtime = { version = 'LuaJIT' }, -- Should techinically be auto-detected. Sometimes this needs to be commented out.
         diagnostics = { globals = { 'vim' } },
         workspace = {
             -- Make the server aware of Neovim runtime files
             library = vim.api.nvim_get_runtime_file("", true),
         },
-        -- Do not send telemetry data containing a randomized but unique identifier
         telemetry = { enable = false },
     } }
 }
