@@ -10,3 +10,8 @@ Start nvim and run `:PackerSync` and wait till treesitter throws an error (idk w
  * `unzip` <sup>[AR](https://archlinux.org/packages/extra/x86_64/unzip/)</sup>
  * `nodejs` <sup>[AR](https://archlinux.org/packages/community/x86_64/nodejs/)</sup>
  * some other stuff like `cmake` & `clang` idk
+
+## TODO
+
+ * [ ] Prevent plugin configs from loading if the plugin is not installed
+ * [ ] PackerSync on first start-up
