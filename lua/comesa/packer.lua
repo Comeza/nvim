@@ -1,66 +1,92 @@
+-- Install packer
+local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+vim.g.is_bootstrap = false
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  vim.g.is_bootstrap = true
+  vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
+end
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function(use)
-        -- packer can manage itself
-        use 'wbthomason/packer.nvim'
+require('packer').startup(function(use)
+    -- packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-        -- Grreeter
-        use "goolord/alpha-nvim"
+    -- Grreeter
+    use "goolord/alpha-nvim"
 
-        -- Undotree
-        use 'mbbill/undotree'
+    -- Undotree
+    use 'mbbill/undotree'
 
-        -- Syntax
-        use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    -- Syntax
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-        -- Zen mode
-        use "folke/zen-mode.nvim"
+    -- Zen mode
+    use "folke/zen-mode.nvim"
 
-        -- Sessions
-        use { 'Shatur/neovim-session-manager', requires = {
-            { 'nvim-lua/plenary.nvim' }
-        } }
+    -- Sessions
+    use { 'Shatur/neovim-session-manager', requires = {
+        { 'nvim-lua/plenary.nvim' }
+    } }
 
-        -- Icons
-        use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
-        use { 'nvim-telescope/telescope-ui-select.nvim' }
+    -- Icons
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
 
-        -- color schemes
-        use({ 'rose-pine/neovim', as = 'rose-pine' })
-        use 'aktersnurra/no-clown-fiesta.nvim'
+    -- color schemes
+    use({ 'rose-pine/neovim', as = 'rose-pine' })
+    use 'aktersnurra/no-clown-fiesta.nvim'
+    use 'taDachs/kit.vim'
 
-        -- Icons
-        use 'kyazdani42/nvim-web-devicons'
+    -- Icons
+    use 'kyazdani42/nvim-web-devicons'
 
-        -- lsp config
-        use {
-            'VonHeikemen/lsp-zero.nvim',
-            requires = {
-                -- LSP Support
-                { 'neovim/nvim-lspconfig' },
-                { 'williamboman/mason.nvim' },
-                { 'williamboman/mason-lspconfig.nvim' },
+    -- lsp config
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        requires = {
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' },
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
 
-                -- Autocompletion
-                { 'hrsh7th/nvim-cmp' },
-                { 'hrsh7th/cmp-buffer' },
-                { 'hrsh7th/cmp-path' },
-                { 'saadparwaiz1/cmp_luasnip' },
-                { 'hrsh7th/cmp-nvim-lsp' },
-                { 'hrsh7th/cmp-nvim-lua' },
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'saadparwaiz1/cmp_luasnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lua' },
 
-                -- Snippets
-                { 'L3MON4D3/LuaSnip' },
-                { 'rafamadriz/friendly-snippets' },
-                { 'folke/trouble.nvim' }
-            }
+            -- Snippets
+            { 'L3MON4D3/LuaSnip' },
+            { 'rafamadriz/friendly-snippets' },
+            { 'folke/trouble.nvim' }
         }
+    }
 
-        -- Lua line
-        use 'nvim-lualine/lualine.nvim'
-        use 'arkav/lualine-lsp-progress'
+    -- Lua line
+    use 'nvim-lualine/lualine.nvim'
+    use 'arkav/lualine-lsp-progress'
 
-        -- Fugitive (Git Integration)
-        use 'tpope/vim-fugitive'
-        use 'airblade/vim-gitgutter'
-    end)
+    -- Fugitive (Git Integration)
+    use 'tpope/vim-fugitive'
+    use 'airblade/vim-gitgutter'
+
+    -- Sync
+    if vim.g.is_bootstrap then
+        require('packer').sync()
+    end
+end)
+
+-- When we are bootstrapping a configuration, it doesn't
+-- make sense to execute the rest of the init.lua.
+--
+-- You'll need to restart nvim, and then it will work.
+if vim.g.is_bootstrap then
+  print '=================================='
+  print '    Plugins are being installed'
+  print '    Wait until Packer completes,'
+  print '       then restart nvim'
+  print '=================================='
+  return
+end

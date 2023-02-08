@@ -1,3 +1,8 @@
+if vim.g.is_bootstrap == true then
+    print("Skipping color Config")
+    return
+end
+
 local actions = require 'telescope.actions'
 local pickers = require 'telescope.pickers'
 local finders = require 'telescope.finders'

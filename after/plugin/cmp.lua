@@ -1,3 +1,8 @@
+if vim.g.is_bootstrap == true then
+    print("Skipping CMP Config")
+    return
+end
+
 local ICONS = {
     Method        = "",
     Function      = "",

@@ -1,3 +1,8 @@
+if vim.g.is_bootstrap == true then
+    print("Skipping Treesitter Config")
+    return
+end
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "c", "javascript", "typescript", "toml", "lua", "rust", "help" },
 

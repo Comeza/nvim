@@ -1,3 +1,8 @@
+if vim.g.is_bootstrap == true then
+    print("Skipping trouble Config")
+    return
+end
+
 require 'trouble'.setup {
     position = "right", -- position of the list can be: bottom, top, left, right
     height = 10, -- height of the trouble list when position is top or bottom

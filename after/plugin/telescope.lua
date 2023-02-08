@@ -1,3 +1,8 @@
+if vim.g.is_bootstrap == true then
+    print("Skipping Telescope Config")
+    return
+end
+
 local builtin = require'telescope.builtin';
 
 vim.keymap.set("n", "<leader>ö", ':Telescope fd<CR>')

@@ -1,3 +1,8 @@
+if vim.g.is_bootstrap == true then
+    print("Skipping Session Manger Config")
+    return
+end
+
 local Path = require('plenary.path')
 
 require('session_manager').setup({

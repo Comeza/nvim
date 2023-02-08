@@ -1,3 +1,8 @@
+if vim.g.is_bootstrap == true then
+    print("Skipping Alpha Config")
+    return
+end
+
 local _, alpha = pcall(require, "alpha")
 
 local header = {
