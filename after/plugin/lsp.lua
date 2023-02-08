@@ -1,3 +1,8 @@
+if vim.g.is_bootstrap == true then
+    print("Skipping LSP Config")
+    return
+end
+
 local lsp = require('lsp-zero')
 
 lsp.preset('recommended')

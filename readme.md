@@ -13,5 +13,5 @@ Start nvim and run `:PackerSync` and wait till treesitter throws an error (idk w
 
 ## TODO
 
- * [ ] Prevent plugin configs from loading if the plugin is not installed
- * [ ] PackerSync on first start-up
+ * [x] Prevent plugin configs from loading if the plugin is not installed
+ * [x] PackerSync on first start-up
