@@ -8,7 +8,7 @@ lsp.set_preferences({
 
 lsp.ensure_installed({
     'rust_analyzer',
-    'sumneko_lua'
+    'lua_ls'
 })
 
 lsp.use('rust_analyzer', {
@@ -18,10 +18,10 @@ lsp.use('rust_analyzer', {
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-        ["<C-Space>"] = cmp.mapping.complete(),
-    })
+    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    ["<C-Space>"] = cmp.mapping.complete(),
+})
 
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings
@@ -44,16 +44,19 @@ end)
 -- In case if you're using Arch, you might want to use `neovim-git` (AUR) instead of `neovim`.
 -- It also helps to run `:so %` on this file sometimes. Idk why
 -- Maybe it's the out-dated LuaJIT version, some environmet magic or just some lsp mischief.
-require 'lspconfig'.sumneko_lua.setup {
-    settings = { Lua = {
-        runtime = { version = 'LuaJIT' }, -- Should techinically be auto-detected. Sometimes this needs to be commented out.
-        diagnostics = { globals = { 'vim' } },
-        workspace = {
-            -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file("", true),
-        },
-        telemetry = { enable = false },
-    } }
-}
+
+-- require 'lspconfig'.sumneko_lua
+require 'lspconfig'.lua_ls
+    .setup {
+        settings = { Lua = {
+            runtime = { version = 'LuaJIT' }, -- Should techinically be auto-detected. Sometimes this needs to be commented out.
+            diagnostics = { globals = { 'vim' } },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            telemetry = { enable = false },
+        } }
+    }
 
 lsp.setup()
