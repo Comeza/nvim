@@ -30,13 +30,14 @@ lsp.setup_nvim_cmp({
 lsp.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = true }
 
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("i", "<C-k>", function() vim.lsp.buf.signature_help() end, opts)
-    vim.keymap.set("n", "gh", function() vim.lsp.buf.code_action() end, opts)
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
-    vim.keymap.set("n", "gi", function() vim.diagnostic.open_float() end, opts)
-    vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end, opts)
+    Kmap("n", "gd", function() vim.lsp.buf.definition() end, opts) -- g (d)efinition
+    Kmap("n", "gi", function() vim.lsp.buf.signature_help() end, opts) -- g signature(i)nfo
+    Kmap("n", "ga", function() vim.lsp.buf.code_action() end, opts) -- g (a)ction
+    Kmap("n", "gh", function() vim.diagnostic.open_float() end, opts) -- g (h)elp
+    Kmap("n", "gd", function() vim.lsp.buf.definition() end, opts) -- g (d)efinition
+    Kmap("n", "gD", function() vim.lsp.buf.declaration() end, opts) -- g (D)claration
+    Kmap("n", "<A-F>", function() vim.lsp.buf.format() end, opts) -- (f)ormat
+    Kmap("n", "<leader>f", function() vim.lsp.buf.format() end, opts) -- (f)ormat
 end)
 
 -- Sometimes this is needed that the lsp can resolve the 'vim' global variable

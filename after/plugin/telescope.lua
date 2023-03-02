@@ -1,11 +1,11 @@
 local builtin = require 'telescope.builtin';
 
-vim.keymap.set("n", "<leader>ö", ':Telescope fd<CR>')
-vim.keymap.set("n", "<leader>ä", builtin.git_files)
-vim.keymap.set("n", "<leader>b", builtin.buffers)
-vim.keymap.set("n", "<leader>?", builtin.keymaps)
-vim.keymap.set("n", "<leader>m", builtin.marks)
-vim.keymap.set("n", "<leader>p", builtin.commands)
+Kmap("n", "<leader>ö", ':Telescope fd<CR>')
+Kmap("n", "<leader>ä", builtin.git_files)
+Kmap("n", "<leader>b", builtin.buffers)
+Kmap("n", "<leader>?", builtin.keymaps)
+Kmap("n", "<leader>m", builtin.marks)
+Kmap("n", "<leader>p", builtin.commands)
 
 -- This is your opts table
 require("telescope").setup {
