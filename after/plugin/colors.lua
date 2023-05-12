@@ -18,9 +18,15 @@ local function SetTheme(color)
 end
 
 local themes = {
+    ['gruvbox'] = function ()
+        SetTheme('gruvbox')
+    end,
     ['rosé-pine'] = function()
         require('rose-pine').setup({ disable_background = false })
         SetTheme('rose-pine')
+    end,
+    ['rusticated'] = function ()
+        SetTheme('rusticated')
     end,
     ['no-clown-fiesta'] = function()
         require("no-clown-fiesta").setup({

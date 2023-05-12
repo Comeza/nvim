@@ -28,6 +28,8 @@ return require('packer').startup(function(use)
         -- color schemes
         use({ 'rose-pine/neovim', as = 'rose-pine' })
         use 'aktersnurra/no-clown-fiesta.nvim'
+        use 'd00h/nvim-rusticated'
+        use 'morhetz/gruvbox'
 
         -- Icons
         use 'kyazdani42/nvim-web-devicons'
@@ -52,7 +54,10 @@ return require('packer').startup(function(use)
                 -- Snippets
                 { 'L3MON4D3/LuaSnip' },
                 { 'rafamadriz/friendly-snippets' },
-                { 'folke/trouble.nvim' }
+                { 'folke/trouble.nvim' },
+
+                -- Rust :)
+                -- { 'simrat39/rust-tools.nvim' }
             }
         }
 
