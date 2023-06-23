@@ -1,67 +1,73 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-        -- packer can manage itself
-        use 'wbthomason/packer.nvim'
+    -- packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-        -- Grreeter
-        use "goolord/alpha-nvim"
+    -- Grreeter
+    use "goolord/alpha-nvim"
 
-        -- Undotree
-        use 'mbbill/undotree'
+    -- Undotree
+    use 'mbbill/undotree'
 
-        -- Syntax
-        use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    -- Syntax
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-        -- Zen mode
-        use "folke/zen-mode.nvim"
+    -- Zen mode
+    use "folke/zen-mode.nvim"
 
-        -- Sessions
-        use { 'Shatur/neovim-session-manager', requires = {
+    -- Sessions
+    use { 'Shatur/neovim-session-manager',
+        requires = {
             { 'nvim-lua/plenary.nvim' }
         } }
 
-        -- Icons
-        use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
-        use { 'nvim-telescope/telescope-ui-select.nvim' }
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
 
-        -- color schemes
-        use({ 'rose-pine/neovim', as = 'rose-pine' })
-        use 'aktersnurra/no-clown-fiesta.nvim'
-        use 'd00h/nvim-rusticated'
-        use 'morhetz/gruvbox'
+    -- Icons
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
 
-        -- Icons
-        use 'kyazdani42/nvim-web-devicons'
+    -- color schemes
+    use({ 'rose-pine/neovim', as = 'rose-pine' })
+    use 'aktersnurra/no-clown-fiesta.nvim'
+    use 'd00h/nvim-rusticated'
+    use 'morhetz/gruvbox'
 
-        -- lsp config
-        use {
-            'VonHeikemen/lsp-zero.nvim',
-            requires = {
-                -- LSP Support
-                { 'neovim/nvim-lspconfig' },
-                { 'williamboman/mason.nvim' },
-                { 'williamboman/mason-lspconfig.nvim' },
+    -- Icons
+    use 'kyazdani42/nvim-web-devicons'
 
-                -- Autocompletion
-                { 'hrsh7th/nvim-cmp' },
-                { 'hrsh7th/cmp-buffer' },
-                { 'hrsh7th/cmp-path' },
-                { 'saadparwaiz1/cmp_luasnip' },
-                { 'hrsh7th/cmp-nvim-lsp' },
-                { 'hrsh7th/cmp-nvim-lua' },
+    -- lsp config
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        requires = {
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' },
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
 
-                -- Snippets
-                { 'L3MON4D3/LuaSnip' },
-                { 'rafamadriz/friendly-snippets' },
-                { 'folke/trouble.nvim' },
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'saadparwaiz1/cmp_luasnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lua' },
 
-                -- Rust :)
-                -- { 'simrat39/rust-tools.nvim' }
-            }
+            -- Snippets
+            { 'L3MON4D3/LuaSnip' },
+            { 'rafamadriz/friendly-snippets' },
+            { 'folke/trouble.nvim' },
+
+            -- Rust :)
+            -- { 'simrat39/rust-tools.nvim' }
         }
+    }
 
-        -- Lua line
-        use 'nvim-lualine/lualine.nvim'
-        use 'arkav/lualine-lsp-progress'
-    end)
+    -- Lua line
+    use 'nvim-lualine/lualine.nvim'
+    use 'arkav/lualine-lsp-progress'
+end)
