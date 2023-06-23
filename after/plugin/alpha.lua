@@ -59,10 +59,10 @@ local buttons  = {
     val = {
         button( "e", "   Create" , ":ene <BAR> startinsert <CR>"),
         button( "r", "   Restore", ":SessionManager load_last_session<CR>"),
-        button( "l", "󰃀   Load",    ":SessionManager load_session<CR>"),
+        button( "l", "   Load",    ":SessionManager load_session<CR>"),
         button( "c", "   Config",  ":cd ~/.config/nvim/<CR>:e .<CR>"),
-        button( "u", "󰏔   Update",  ":PackerSync<CR>"),
-        button( "q", "󰁮   Quit" ,   ":qa<CR>"),
+        button( "u", "   Update",  ":PackerSync<CR>"),
+        button( "q", "󰗼   Quit" ,   ":qa<CR>"),
     },
     opts = {
         position = "center",
