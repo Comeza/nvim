@@ -5,6 +5,7 @@ print("detected neovide environment")
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.guifont = { "CaskaydiaCove Nerd Font", "h18" }
+-- vim.opt.guifont = { "JetBrains NerdFont", "h18" }
 vim.g.neovide_scale_factor = 0.8
 
 local SCALE_FACTOR = 0.1

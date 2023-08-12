@@ -8,6 +8,10 @@ local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
 
 cmp.setup {
+    mapping = {
+        ['<C-j>'] = cmp.mapping.select_next_item(),
+        ['<C-k>'] = cmp.mapping.select_prev_item()
+    },
     view = {
         entries = { name = 'custom' }
     },
