@@ -28,7 +28,7 @@ return require('packer').startup(function(use)
     }
 
     -- Icons
-    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
+    use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
     use { 'nvim-telescope/telescope-ui-select.nvim' }
 
     -- color schemes
