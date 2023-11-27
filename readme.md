@@ -1,6 +1,5 @@
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/37485277/215925717-5fdda61d-b6c1-4ec5-858f-37ba630c5409.png" />
-</p>
+![image](https://github.com/Comeza/nvim/assets/37485277/25891a65-5f41-4a1a-901d-8c8db0e1f238)
+
 
 ## Installation
 Start nvim and run `:PackerSync` and wait till treesitter throws an error (idk why this happens, but it only does this once)
