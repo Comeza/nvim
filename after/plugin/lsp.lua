@@ -10,8 +10,9 @@ lsp.use('rust_analyzer', {
     diagnostic = { experimental = { enable = true } }
 })
 
+
 local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action();
+local cmp_action = lsp.cmp_action();
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
@@ -37,6 +38,13 @@ lsp.on_attach(function(_, bufnr)
     Kmap("n", "<A-F>", function() vim.lsp.buf.format() end, opts) -- (f)ormat
     Kmap("n", "<leader>f", function() vim.lsp.buf.format() end, opts) -- (f)ormat
 end)
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  handlers = {
+    lsp.default_setup,
+  }
+})
 
 -- Sometimes this is needed that the lsp can resolve the 'vim' global variable
 -- If this doesn't work, you might need to update neovim.

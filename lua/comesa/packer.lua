@@ -61,6 +61,8 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },
             { 'rafamadriz/friendly-snippets' },
             { 'folke/trouble.nvim' },
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'}
 
             -- Rust :)
             -- { 'simrat39/rust-tools.nvim' }
