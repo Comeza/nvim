@@ -1,4 +1,1 @@
-plugin/packer_compiled.lua
-undodir
-Session.vim
-.luarc.json
+lazy-lock.json
