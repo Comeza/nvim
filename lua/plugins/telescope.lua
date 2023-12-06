@@ -6,13 +6,13 @@ return {
     config = function()
         local builtin = require 'telescope.builtin';
 
-        map("n", "<leader>ö", builtin.fd)
-        map("n", "<leader>ä", builtin.git_files)
-        map("n", "<leader>b", builtin.buffers)
-        map("n", "<leader>?", builtin.keymaps)
-        map("n", "<leader>m", builtin.marks)
-        map("n", "<leader>p", builtin.commands)
-        
+        Map("n", "<leader>ö", builtin.fd)
+        Map("n", "<leader>ä", builtin.git_files)
+        Map("n", "<leader>b", builtin.buffers)
+        Map("n", "<leader>?", builtin.keymaps)
+        Map("n", "<leader>m", builtin.marks)
+        Map("n", "<leader>p", builtin.commands)
+
         -- This is your opts table
         require("telescope").setup {
             defaults = {

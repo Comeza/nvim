@@ -1,13 +1,13 @@
 vim.g.mapleader = ' '
 
-local opts = { remap = true, silent = true }
+local opts = { remap = true, silent = true, }
 
 --- Wrappers around [vim.keymap.set]
 ---@param mode string|table
 ---@param map string|table
 ---@param thing string|function
 ---@param options table|nil
-function map(mode, map, thing, options)
+function Map(mode, map, thing, options)
     local o = options or opts
 
     if type(map) == 'table' then
@@ -22,28 +22,45 @@ function map(mode, map, thing, options)
 end
 
 -- go into normal mode with jj
-map('i', 'jj', '<Esc>')
+Map('i', 'jj', '<Esc>')
 
 -- open netrw
-map('n', '<leader>pv', vim.cmd.Ex)
+Map('n', '<leader>pv', vim.cmd.Ex)
 
 -- save file
-map('n', '<leader>w', ':w<CR>')
+Map('n', '<leader>w', ':w<CR>')
 
 -- move lines
-map('v', 'J', ':m \'>+1<CR>gv=gv')
-map('v', 'K', ':m \'<-2<CR>gv=gv')
+Map('v', 'J', ':m \'>+1<CR>gv=gv')
+Map('v', 'K', ':m \'<-2<CR>gv=gv')
 
-map('i', '<A-j>', '<Down>')
-map('i', '<A-k>', '<Up>')
-map('i', '<A-h>', '<Left>')
-map('i', '<A-l>', '<Right>')
+Map('i', '<A-j>', '<Down>')
+Map('i', '<A-k>', '<Up>')
+Map('i', '<A-h>', '<Left>')
+Map('i', '<A-l>', '<Right>')
 
 -- buffer keys
-map('n', 'bd', '<cmd>bd<CR>')
-map('n', 'bp', '<cmd>bp<CR>')
-map('n', 'bn', '<cmd>bn<CR>')
+Map('n', 'bd', '<cmd>bd<CR>')
+Map('n', 'bp', '<cmd>bp<CR>')
+Map('n', 'bn', '<cmd>bn<CR>')
 
 -- open note-taking buffer
-map('n', '<leader>ß',
-    ':noswapfile enew<CR>:setlocal buftype=nofile<CR>:setlocal bufhidden=hide<CR>file scratch<CR>')
+Map('n', '<leader>ß', ':noswapfile enew<CR>:setlocal buftype=nofile<CR>:setlocal bufhidden=hide<CR>file scratch<CR>')
+
+
+-- LSP keybinds
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+        local o = { remap = true, silent = true, buffer = args.buf }
+
+        Map("n", "K",          function() vim.lsp.buf.hover() end,          o)   -- Hover 
+        Map("n", "gd",         function() vim.lsp.buf.definition() end,     o)   -- g (d)efenition
+        Map("n", "gD",         function() vim.lsp.buf.declaration() end,    o)   -- g (D)eclaration
+        Map("n", "gi",         function() vim.lsp.buf.signature_help() end, o)   -- g signature (i)nfo
+        Map("n", "ga",         function() vim.lsp.buf.code_action() end,    o)   -- g (a)ction
+        Map("n", "gh",         function() vim.diagnostic.open_float() end,  o)   -- g (h)elp
+        Map("n", "<M-F>",      function() vim.lsp.buf.format() end,         o)   -- (f)ormat
+        Map("n", "<leader>f",  function() vim.lsp.buf.format() end,         o)   -- (f)ormat
+  end,
+})
+
