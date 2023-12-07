@@ -27,3 +27,5 @@ o.signcolumn = "yes"
 o.isfname:append("@-@")
 
 o.updatetime = 50
+
+vim.cmd.colorscheme('habamax')

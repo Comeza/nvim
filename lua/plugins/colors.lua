@@ -1,5 +1,4 @@
 return {
-    -- ROSÉ PINE
-    { 'rose-pine/neovim', name = 'rose-pine' },
-    { 'aktersnurra/no-clown-fiesta.nvim' }
+    { 'aktersnurra/no-clown-fiesta.nvim' },
+    { 'rose-pine/neovim', name = 'rose-pine' }
 }
