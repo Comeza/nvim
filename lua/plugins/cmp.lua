@@ -1,5 +1,5 @@
 local M = {
-    "hrsh7th/nvim-cmp",
+	"hrsh7th/nvim-cmp",
 	event = "InsertEnter",
 	dependencies = {
 		-- Snippet Engine
@@ -11,11 +11,11 @@ local M = {
 
 		-- Path completion
 		"hrsh7th/cmp-path",
-	}
+	},
 }
 
 local formatting = {
-    format = function(_, item)
+	format = function(_, item)
 		local icons = require("config.icons").kinds
 		if #item.abbr > 25 then
 			item.abbr = string.sub(item.abbr, 0, 25) .. "~"
@@ -34,10 +34,10 @@ local sources = {
 	{ name = "path" },
 }
 
-local view =  {
-    entries = {
-	    name = "custom",
-	    selection_order = "near_cursor",
+local view = {
+	entries = {
+		name = "custom",
+		selection_order = "near_cursor",
 	},
 }
 
@@ -48,12 +48,12 @@ local experimental = {
 }
 
 function M.config()
-    local cmp = require("cmp")
+	local cmp = require("cmp")
 	local luasnip = require("luasnip")
 	require("luasnip.loaders.from_vscode").lazy_load()
 	luasnip.config.setup({})
 	vim.opt.completeopt = { "menu", "menuone", "noselect" }
-	cmp.setup({
+	local config = {
 		formatting = formatting,
 		snippet = {
 			expand = function(args)
@@ -116,9 +116,9 @@ function M.config()
 		view = view,
 		experimental = experimental,
 		preselect = "item",
-	})
+	}
+
+	cmp.setup(config)
 end
 
-
 return { M }
-

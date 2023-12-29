@@ -58,21 +58,21 @@ return {
 		end,
 	},
 
-	{
-		"nvimtools/none-ls.nvim",
-		event = "LspAttach",
-		dependencies = { "neovim/nvim-lspconfig" },
-		opts = function()
-			local nls = require("null-ls")
-			local builtin = nls.builtins
-			return {
-				sources = {
-					builtin.formatting.stylua,
-					builtin.formatting.prettier,
-                }
-			}
-		end,
-	},
+--	{
+--		"nvimtools/none-ls.nvim",
+--		event = "LspAttach",
+--		dependencies = { "neovim/nvim-lspconfig" },
+--		opts = function()
+--			local nls = require("null-ls")
+--			local builtin = nls.builtins
+--			return {
+--				sources = {
+--					builtin.formatting.stylua,
+--					builtin.formatting.prettier,
+--                }
+--			}
+--		end,
+--	},
 
 	{
 		"folke/trouble.nvim",
