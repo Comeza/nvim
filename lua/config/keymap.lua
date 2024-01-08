@@ -70,3 +70,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         Map("n", "<F2>", vim.lsp.buf.rename, o)
     end,
 })
+
+
+-- OTHER
+Map('n', "<leader>Z", ":ZenMode<CR>")
