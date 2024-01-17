@@ -23,6 +23,7 @@ vim.opt.guifont = fonts[1] .. font_mod
 -- vim.opt.guifont = { "JetBrains Mono NF", "h18" }
 vim.g.neovide_scale_factor = 1.0
 vim.g.neovide_transparency = 0.8
+vim.g.neovide_fullscreen = false
 
 
 local SCALE_FACTOR = 0.1

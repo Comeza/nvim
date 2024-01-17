@@ -15,7 +15,7 @@ return {
 		end
 
 		Map("n", "<leader>ö", builtin.fd)
-		Map("n", "<leader>ä", builtin.git_files)
+		Map("n", "<leader>ä", builtin.live_grep)
 		Map("n", "<leader>b", builtin.buffers)
 		Map("n", "<leader>?", builtin.keymaps)
 		Map("n", "<leader>m", builtin.marks)

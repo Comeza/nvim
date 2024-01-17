@@ -63,6 +63,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         Map("n", "gd", vim.lsp.buf.definition, o)     -- g (d)efenition
         Map("n", "gD", vim.lsp.buf.declaration, o)    -- g (D)eclaration
         Map("n", "gi", vim.lsp.buf.signature_help, o) -- g signature (i)nfo
+        Map("n", "gu", vim.lsp.buf.references, o)     -- g (u)sages
         Map("n", "ga", vim.lsp.buf.code_action, o)    -- g (a)ction
         Map("n", "gh", vim.diagnostic.open_float, o)  -- g (h)elp
         Map("n", "<M-F>", vim.lsp.buf.format, o)      -- (f)ormat
