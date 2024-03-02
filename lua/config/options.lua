@@ -1,5 +1,8 @@
 local o = vim.opt
 
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 o.nu = true
 o.relativenumber = true
 

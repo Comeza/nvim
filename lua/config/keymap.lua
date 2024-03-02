@@ -25,9 +25,6 @@ end
 -- go into normal mode with jj
 Map('i', 'jj', '<Esc>')
 
--- open netrw
-Map('n', '<leader>pv', vim.cmd.Ex)
-
 -- save file
 Map('n', '<leader>w', ':w<CR>')
 
