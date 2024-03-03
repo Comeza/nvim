@@ -50,9 +50,11 @@ local experimental = {
 function M.config()
 	local cmp = require("cmp")
 	local luasnip = require("luasnip")
+
 	require("luasnip.loaders.from_vscode").lazy_load()
 	luasnip.config.setup({})
 	vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
 	local config = {
 		formatting = formatting,
 		snippet = {
@@ -83,6 +85,7 @@ function M.config()
 			end, { "i", "s" }),
 		}),
 		sources = {
+            { name = 'nvim_lsp_signature_help' },
 			{ name = "nvim_lsp" },
 			{ name = "luasnip" },
 			{ name = "path" },
