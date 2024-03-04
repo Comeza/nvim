@@ -1,9 +1,7 @@
 local servers = {
-    ["cssls"] = {},
-    ["html"] = {},
-    ["lua_ls"] = {},
-    ["tsserver"] = {},
-    ["rust_analyzer"] = {},
+    "stylua",
+    "tsserver",
+    "rust_analyzer"
 }
 
 return {
@@ -39,14 +37,14 @@ return {
             require("mason").setup()
             -- Ensure the servers above are installed
             mason_lspconfig.setup({
-                ensure_installed = vim.tbl_keys(servers),
+                ensure_installed = servers,
             })
 
             mason_lspconfig.setup_handlers({
                 function(server_name)
                     if server_name ~= "jdtls" then
                         require("lspconfig")[server_name].setup({
-                            settings = servers[server_name],
+                            settings = {},
                         })
                     end
                 end,
@@ -88,15 +86,7 @@ return {
         "williamboman/mason.nvim",
         cmd = { "Mason" },
         opts = {
-            ensure_installed = {
-                "rust",
-                "cssls",
-                "html",
-                "lua_ls",
-                "prettier",
-                "stylua",
-                "tsserver",
-            },
+            ensure_installed = servers,
         },
         config = function(_, opts)
             vim.api.nvim_create_user_command("MasonInstallAll", function()

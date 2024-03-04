@@ -1,10 +1,10 @@
 return {
     "folke/zen-mode.nvim",
+
     lazy = true,
     cmd = "ZenMode",
-    opts = {
-        window = {
-            backdrop = 1
-        }
-    }
+
+    config = function()
+        Map('n', "<leader>Z", ":ZenMode<CR>")
+    end,
 }
