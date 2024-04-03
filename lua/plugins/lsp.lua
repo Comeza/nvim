@@ -79,7 +79,16 @@ return {
             "neovim/nvim-lspconfig",
         },
         cmd = { "Trouble", "TroubleToggle" },
-        opts = {},
+        opts = {
+            icons = true,
+            signs = {
+                error = "",
+                warning = "",
+                hint = "",
+                information = "",
+                other = "",
+            },
+        },
     },
 
     {
