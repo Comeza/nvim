@@ -1,5 +1,5 @@
 local servers = {
-    "stylua",
+    "lua_ls",
     "tsserver",
     "rust_analyzer"
 }
