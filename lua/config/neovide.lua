@@ -46,7 +46,7 @@ local select_font = function(opts)
             results = fonts
         },
         sorter = conf.values.generic_sorter(opts),
-        attach_mappings = function(bufnr, map)
+        attach_mappings = function(bufnr, _)
             actions.select_default:replace(function()
                 actions.close(bufnr)
                 local selection = action_state.get_selected_entry()

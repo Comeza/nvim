@@ -17,7 +17,7 @@ o.wrap = false
 
 o.swapfile = false
 o.backup = false
-o.undodir = vim.fn.stdpath("data") .. "/undodir"
+o.undodir = { vim.fn.stdpath("data") .. "/undodir" }
 o.undofile = true
 
 o.hlsearch = false

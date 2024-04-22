@@ -1,6 +1,5 @@
 -- LEADER KEYS ARE DEFINED IN init.lua, since lazy.nvim requires it to be set before it's loaded
---
---
+
 local opts = { remap = true, silent = true, }
 
 --- Wrappers around [vim.keymap.set]
@@ -56,15 +55,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
         local o = { remap = true, silent = true, buffer = args.buf }
 
-        Map("n", "K", vim.lsp.buf.hover, o)            -- Hover
-        Map("n", "gd", vim.lsp.buf.definition, o)      -- g (d)efenition
-        Map("n", "gD", vim.lsp.buf.declaration, o)     -- g (D)eclaration
-        Map("n", "gi", vim.lsp.buf.signature_help, o)  -- g signature (i)nfo
-        Map("n", "gu", vim.lsp.buf.references, o)      -- g (u)sages
-        Map("n", "ga", vim.lsp.buf.code_action, o)     -- g (a)ction
-        Map("n", "gh", vim.diagnostic.open_float, o)   -- g (h)elp
-        Map("n", "<M-F>", vim.lsp.buf.format, o)       -- (f)ormat
-        Map("n", "<leader>f", vim.lsp.buf.format, o)   -- (f)ormat
+        Map("n", "K", vim.lsp.buf.hover, o)           -- Hover
+        Map("n", "gd", vim.lsp.buf.definition, o)     -- g (d)efenition
+        Map("n", "gD", vim.lsp.buf.declaration, o)    -- g (D)eclaration
+        Map("n", "gi", vim.lsp.buf.signature_help, o) -- g signature (i)nfo
+        Map("n", "gu", vim.lsp.buf.references, o)     -- g (u)sages
+        Map("n", "ga", vim.lsp.buf.code_action, o)    -- g (a)ction
+        Map("n", "gh", vim.diagnostic.open_float, o)  -- g (h)elp
+        Map("n", "<M-F>", vim.lsp.buf.format, o)      -- (f)ormat
+        Map("n", "<leader>f", vim.lsp.buf.format, o)  -- (f)ormat
         Map("n", "<F2>", vim.lsp.buf.rename, o)
     end,
 })

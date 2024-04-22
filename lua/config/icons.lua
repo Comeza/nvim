@@ -2,23 +2,21 @@ return {
     dap = {
         Stopped = { 'X ', 'DiagnosticWarn', 'DapStoppedLine' },
         Breakpoint = 'B ',
-        -- BreakpointCondition = ' ',
-        -- BreakpointRejected = { ' ', 'DiagnosticError' },
-        -- LogPoint = '.>',
     },
+
     diagnostics = {
-        Error = 'E ',
-        Warn = 'W ',
-        Hint = 'H ',
-        Info = 'I ',
+        Error = ' ',
+        Warn = ' ',
+        Hint = '󰋖 ',
+        Info = ' ',
     },
+
     git = {
         added = '+ ',
         modified = '~ ',
         removed = '- ',
     },
 
-    -- Kinds {{{
     kinds = {
         Array = ' ',
         Boolean = ' ',
@@ -56,10 +54,8 @@ return {
         Value = ' ',
         Variable = ' ',
     },
-    -- }}}
-    -- Lazy {{{
+
     lazy = {
-        -- Icons {{{
         cmd = ' ',
         config = '',
         event = '',
@@ -81,31 +77,5 @@ return {
             '★',
             '‒',
         },
-        -- }}}
-        -- -- No Icons {{{
-        -- cmd = '',
-        -- config = '',
-        -- event = '',
-        -- ft = '',
-        -- init = '',
-        -- import = '',
-        -- keys = '',
-        -- lazy = '',
-        -- loaded = '',
-        -- not_loaded = '',
-        -- plugin = '',
-        -- runtime = '',
-        -- source = '',
-        -- start = '',
-        -- task = '',
-        -- list = {
-        --     '',
-        --     '',
-        --     '',
-        --     '',
-        -- },
-        -- -- }}}
-    -- }}}
     },
 }
-
