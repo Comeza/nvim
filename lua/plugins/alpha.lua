@@ -8,6 +8,7 @@ local M = {
 --for some reason i thought "you know what, this one-time use needs a builder pattern"
 
 ---@alias Component { type: "button"|"text"|"group", val: string | table<number, Component>, opts: table }
+---@alias Position "left"|"right"|"center"
 
 ---Creates a new default button
 ---@param text string|nil
@@ -73,7 +74,7 @@ local function button_options()
     end
 
     ---Position of the Button
-    ---@param pos 'left'|'center'|'right'
+    ---@param pos Position
     ---@return ButtonOptionBuilder
     function ButtonOptionBuilder:position(pos)
         self.data.position = pos
@@ -178,7 +179,7 @@ local function text_builder(text)
     end
 
     ---Sets the position of the text
-    ---@param position any
+    ---@param position Position
     function TextBuilder:position(position)
         self.data.opts.position = position
         return self
@@ -219,7 +220,7 @@ local function group_builer()
     end
 
     ---Sets the spacing between the elements
-    ---@param value "center"|"left"|"right"
+    ---@param value Position
     function GroupBuilder:position(value)
         self.data.opts.position = value
         return self
