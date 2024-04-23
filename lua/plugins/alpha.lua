@@ -267,9 +267,12 @@ end
 
 function M.opts()
     local lazy = require("lazy")
+    local headers = require('utils.headers')
     local stats = lazy.stats()
 
-    local header_ascii = require('utils.headers'):get_random()
+    -- needs fix, random only selects first element for some reason
+    -- Maybe lazy memoizes the M.opts call
+    local header_ascii = headers:get_random()
 
     local header = text_builder()
         :text(header_ascii)
