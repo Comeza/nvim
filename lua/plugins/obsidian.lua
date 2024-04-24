@@ -16,7 +16,7 @@ local function locate_obsidian_vaults()
         file:close()
     end
 
-    return assert(os.getenv("OBSIDIAN_VAULT") or obsidian_path)
+    return os.getenv("OBSIDIAN_VAULT") or obsidian_path
 end
 
 local vault_dir = locate_obsidian_vaults()
@@ -25,7 +25,8 @@ return {
     {
         "epwalsh/obsidian.nvim",
         dependencies = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" },
-        event = { "BufEnter " .. vault_dir .. "*" },
+        event = { vault_dir and ("BufEnter " .. vault_dir .. "*") },
+        enabled = vault_dir ~= nil,
         opts = function()
             return {
                 dir = vault_dir,
