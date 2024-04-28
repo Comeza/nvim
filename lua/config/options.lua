@@ -30,4 +30,4 @@ o.signcolumn = "yes"
 o.isfname:append("@-@")
 
 o.updatetime = 50
-o.conceallevel = 1
+o.conceallevel = 0
