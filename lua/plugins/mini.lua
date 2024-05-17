@@ -2,6 +2,12 @@ return {
     {
         "echasnovski/mini.pairs",
         event = "InsertEnter",
-        enabled = false,
+        enabled = true,
+        opts = {
+            mappings = {
+                ["'"] = false,
+            },
+        }
+        ,
     },
 }
