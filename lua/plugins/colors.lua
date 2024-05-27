@@ -1,7 +1,15 @@
+local function colorscheme(github, name)
+    return {
+        github,
+        name,
+        priority = 1000
+    }
+end
+
 return {
-    { "aktersnurra/no-clown-fiesta.nvim", priority = 1000 },
-    { "rose-pine/neovim",                 name = "rose-pine", priority = 1000 },
-    { "ellisonleao/gruvbox.nvim",         priority = 1000 },
-    { "rebelot/kanagawa.nvim",            priority = 1000 },
-    { "comfysage/evergarden",             priority = 1000 }
+    colorscheme("aktersnurra/no-clown-fiesta.nvim"),
+    colorscheme("rose-pine/neovim", "rose-pine"),
+    colorscheme("ellisonleao/gruvbox.nvim"),
+    colorscheme("rebelot/kanagawa.nvim"),
+    colorscheme("comfysage/evergarden"),
 }
