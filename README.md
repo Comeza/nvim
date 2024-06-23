@@ -5,15 +5,13 @@
 # Frankenstein's Neovim 
 
 Personal [Neovim](https://neovim.io/) configuration. \
-Ideally this configuation should be portable for as many users as possible, thus it tries to minimize hard-coding of paths, keybinds and plugins*.
-
-*This currently being worked on.
+Ideally this configuation should be portable.
 
 ## Installation
 
-Technically the configuraion should install itself, once you load it via
-neovim. No (firstparty) dependencies required, except maybe basic stuff like `unzip` or
-`cmake`, since treesitter and mason are weird.
+Technically the configuraion should install itself once you load it via neovim.
+There are no (firstparty) dependencies required, except maybe basic stuff like
+`unzip` or `cmake`, since treesitter and mason are weird.
 
 > [!NOTE]
 > Treesitter needs `tree-sitter-cli` for some grammars to work.
