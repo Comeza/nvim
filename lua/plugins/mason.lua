@@ -1,6 +1,5 @@
 return {
     "williamboman/mason.nvim",
-    build = ":MasonBuild",
     cmd = "Mason",
     opts = {
         ensure_installed = {
@@ -9,7 +8,7 @@ return {
             "rust-analyzer"
         },
     },
-    ---@param opts MasonSettings | {ensure_installed: string[]}
+    ---@param opts {} | {ensure_installed: string[]}
     config = function(_, opts)
         require("mason").setup(opts)
         local mr = require("mason-registry")
