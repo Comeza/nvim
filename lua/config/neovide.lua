@@ -22,7 +22,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.guifont = fonts[1] .. font_mod
 -- vim.opt.guifont = { "JetBrains Mono NF", "h18" }
 vim.g.neovide_scale_factor = 1.0
-vim.g.neovide_transparency = 0.8
+vim.g.neovide_opacity = 0.8
 vim.g.neovide_fullscreen = false
 
 
@@ -33,8 +33,8 @@ Map({ "n", "i" }, "<F11>", function() vim.g.neovide_fullscreen = not vim.g.neovi
 Map({ "n", "i" }, "<C-+>", function() vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + SCALE_FACTOR end)
 Map({ "n", "i" }, "<C-->", function() vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - SCALE_FACTOR end)
 
-Map({ "n", "i" }, "<A-+>", function() vim.g.neovide_transparency = vim.g.neovide_transparency + SCALE_FACTOR end)
-Map({ "n", "i" }, "<A-->", function() vim.g.neovide_transparency = vim.g.neovide_transparency - SCALE_FACTOR end)
+Map({ "n", "i" }, "<A-+>", function() vim.g.neovide_opacity = vim.g.neovide_transparency + SCALE_FACTOR end)
+Map({ "n", "i" }, "<A-->", function() vim.g.neovide_opacity = vim.g.neovide_transparency - SCALE_FACTOR end)
 
 Map({ "n", "i" }, "<C-0>", function() vim.g.neovide_scale_factor = 1 end)
 
