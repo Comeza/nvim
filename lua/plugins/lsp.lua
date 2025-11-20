@@ -18,22 +18,6 @@ return {
                 ensure_installed = servers,
                 automatic_installation = servers
             },
-            config = function(_, opts)
-                local mlsp = require('mason-lspconfig')
-                mlsp.setup(opts)
-
-                mlsp.setup_handlers({
-                    function(server_name)
-                        if server_name == "jdtls" then
-                            return
-                        end
-
-                        require("lspconfig")[server_name].setup({
-                            settings = {},
-                        })
-                    end
-                })
-            end
         },
 
         -- Additional lua configuration, makes nvim stuff amazing!
