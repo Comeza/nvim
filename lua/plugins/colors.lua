@@ -11,4 +11,5 @@ return {
     colorscheme("ellisonleao/gruvbox.nvim"),
     colorscheme("rebelot/kanagawa.nvim"),
     colorscheme("comfysage/evergarden"),
+    colorscheme("vague2k/vague.nvim")
 }
