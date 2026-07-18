@@ -6,7 +6,6 @@ return {
             vim.g.loaded_netrwPlugin = 1
 
             require("nvim-tree").setup()
-            local actions = require("nvim-tree.actions")
             local api = require("nvim-tree.api")
 
             Map("n", "<leader>to", api.tree.open)
