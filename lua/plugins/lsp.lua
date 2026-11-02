@@ -1,7 +1,6 @@
 local icons = require("config.icons")
 
 local servers = {
-    "lua_ls",
     "rust_analyzer"
 }
 
